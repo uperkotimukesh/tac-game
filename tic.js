@@ -1,4 +1,5 @@
 let boxes = document.querySelectorAll(".box");
+let resetbtn = document.querySelector("reset-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg= document.querySelector(".msg")
 
@@ -13,7 +14,8 @@ const winPatterns = [
     [2, 4, 6],
     [3, 4, 5],
     [6, 7, 8]
-];
+]
+
 
 
 boxes.forEach((box) =>{
@@ -33,9 +35,21 @@ boxes.forEach((box) =>{
     });
 });
 
+const disableboxes = () =>{
+    for (let box of boxes) {
+        box.disabled = true;
+    }
+}
+
+const enableboxes = () =>{
+    for (let box of boxes) {
+        box.disabled = false;
+    }
+}
+
 const showWinner = (winner) => {
-    msg.inner = `Congratulations, winner is ${winner}`;
     msgContainer.classList.remove("hide");
+    disableboxes();
 }
 
 const checkwinner = () => {
