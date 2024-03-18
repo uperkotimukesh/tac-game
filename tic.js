@@ -1,7 +1,7 @@
 let boxes = document.querySelectorAll(".box");
-let resetbtn = document.querySelector(".reset-btn");
+let resetbtn = document.querySelector("#reset-btn");
 let msgContainer = document.querySelector(".msg-container");
-let msg= document.querySelector(".msg")
+let msg = document.querySelector(".msg")
 
 let turnO = true;
 
@@ -16,6 +16,11 @@ const winPatterns = [
     [6, 7, 8]
 ]
 
+const resetgame = () =>{
+    turnO = true;
+    enableboxes();
+    msg.innerText.remove("Hide");
+}
 
 boxes.forEach((box) =>{
     box.addEventListener("click", () =>{
@@ -28,7 +33,7 @@ boxes.forEach((box) =>{
             box.innerText = "X";
             turnO = true;
         }
-       
+       box.disabled = true
         checkwinner();
     });
 });
@@ -36,6 +41,13 @@ boxes.forEach((box) =>{
 const disableboxes = () =>{
     for (let box of boxes) {
         box.disabled = true;
+    }
+}
+
+const enableboxes = () =>{
+    for (let box of boxes) {
+        box.disabled = false;
+        box.innerText="";
     }
 }
 
@@ -61,3 +73,4 @@ const checkwinner = () => {
     }
 }
 
+resetbtn.addEventListener("click", resetgame);
