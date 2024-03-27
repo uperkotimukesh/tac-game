@@ -19,7 +19,7 @@ const winPatterns = [
 const resetgame = () =>{
     turnO = true;
     enableboxes();
-    msg.innerText.remove("Hide");
+    msg.innerText="";
 }
 
 boxes.forEach((box) =>{
@@ -68,7 +68,10 @@ const checkwinner = () => {
             if (pos1val === pos2val && pos2val===pos3val) {
                 console.log("winner", pos1val);
                 showWinner(pos1val);
+                msg.innerText="Winner";
+                
             }
+            
         }
     }
 }
