@@ -19,7 +19,7 @@ const winPatterns = [
 const resetgame = () =>{
     turnO = true;
     enableboxes();
-    msg.innerText="";
+    msg.innerText=" ";
 }
 
 boxes.forEach((box) =>{
